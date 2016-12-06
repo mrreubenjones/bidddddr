@@ -1,5 +1,4 @@
 class BidsController < ApplicationController
-
   def index
     @bids = current_user.bids
   end
@@ -21,12 +20,7 @@ class BidsController < ApplicationController
       end
       redirect_to auction_path(@auction)
     else
-      render ('auctions/show')
+      render 'auctions/show'
     end
   end
-
-
-
-
-
 end

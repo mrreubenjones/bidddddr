@@ -41,11 +41,9 @@ class TransitionsController < ApplicationController
     end
   end
 
-private
+  private
 
   def find_auction
     @auction = Auction.find params[:auction_id]
   end
-
-
 end

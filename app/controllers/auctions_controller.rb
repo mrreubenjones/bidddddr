@@ -1,4 +1,5 @@
 class AuctionsController < ApplicationController
+  before_action :authenticate_user
 
   def index
     @auctions = Auction.order(title: :DESC)
@@ -46,10 +47,9 @@ class AuctionsController < ApplicationController
     redirect_to auctions_path, notice: 'Auction deleted'
   end
 
-private
+  private
 
   def auction_params
     params.require(:auction).permit(:title, :details, :date_ending, :reserve_price)
   end
-
 end

@@ -2,10 +2,15 @@ class Auction < ApplicationRecord
   belongs_to :user
   has_many :bids, dependent: :destroy
 
+  validates :title, presence: true
+  validates :details, presence: true
+  validates :date_ending, presence: true
+  validates :reserve_price, presence: true
+
   include AASM
 
   aasm do
-    state :draft, :initial => true
+    state :draft, initial: true
     state :published
     state :reserve_met
     state :won
@@ -35,12 +40,9 @@ class Auction < ApplicationRecord
     event :draft do
       transitions from: [:cancelled, :published], to: :draft
     end
-
   end
-
 
   def max_amount
     bids.max.amount
   end
-
 end

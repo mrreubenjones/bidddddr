@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
@@ -35,7 +34,6 @@ gem 'interactive_editor'
 gem 'awesome_print'
 gem 'hirb'
 
-
 # Manage the states
 gem 'aasm'
 
@@ -48,15 +46,16 @@ gem 'bootstrap-datepicker-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
 
-# Testing
-gem 'rspec-rails'
-gem 'pry'
-gem 'pry-rails'
-gem 'rspec'
-gem 'rails-controller-testing'
-gem 'factory_girl_rails'
-gem 'rubocop', '~> 0.45.0'
+  # Testing
+  gem 'rspec-rails'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'rspec'
+  gem 'rails-controller-testing'
+  gem 'factory_girl_rails'
+  gem 'rubocop', '~> 0.45.0'
 end
+gem 'faker'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

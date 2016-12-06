@@ -9,17 +9,13 @@ class User < ApplicationRecord
                     uniqueness: true,
                     format:  /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
-
-
-
   def full_name
     "#{first_name} #{last_name}".strip.squeeze(' ').titleize
   end
 
-private
+  private
 
   def downcase_email
-    self.email.downcase! if email.present?
+    email.downcase! if email.present?
   end
-
 end
