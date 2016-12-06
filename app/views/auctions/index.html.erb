@@ -1,0 +1,20 @@
+<h1>All the Auctions</h1>
+<table class="table table-striped">
+  <tr>
+    <th>Auction</th>
+    <th>Details</th>
+    <th>Reserve</th>
+    <th>Status</th>
+    <th>End Date</th>
+  </tr>
+
+<% @auctions.each do |a| %>
+  <tr>
+    <td class="text-nowrap"><%= link_to a.title, a %></td>
+    <td><%= a.details %></td>
+    <td><%= a.reserve_price %></td>
+    <td><%= a.aasm_state %></td>
+    <td class="text-nowrap"><%= a.date_ending %></td>
+  </tr>
+<% end %>
+</table>

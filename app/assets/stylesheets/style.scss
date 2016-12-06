@@ -1,0 +1,145 @@
+// Media Breakpoints
+// Base Selectors
+// Tables
+// Header
+// Footer
+// Typography
+// Components
+
+
+/* Media Queries ----------------------------------------------------------- */
+
+
+@media (min-width: 979px) {
+  body {
+    padding-top: 60px;
+  }
+}
+
+
+/* Base Selectors ---------------------------------------------------------- */
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* Tables ------------------------------------------------------------------ */
+
+table i {
+  color: #aaa;
+  margin: 0 .3em;
+}
+
+table i:hover {
+  color: #000;
+}
+
+
+/* Header ----------------------------------------------------------------- */
+
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-family: 'Patua One', cursive;
+  font-size: 1.8em;
+  color: #ccc;
+  padding: 8px 0 0;
+  font-weight: 100;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.dropdown i {
+  font-size: 1.2em;
+}
+
+/* Footer ----------------------------------------------------------------- */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer .tagline {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+
+/* Typography -------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  // text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  // text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* Components -------------------------------------------------------------- */
+
+.meta-data > span {
+  margin-right: 1rem;
+  padding-right: 1rem;
+  border-right: solid 1px #eee;
+  text-transform: uppercase;
+}
+
+.meta-data > span:last-of-type {
+  border: 0;
+}
+
+
+
+

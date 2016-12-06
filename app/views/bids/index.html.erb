@@ -1,0 +1,6 @@
+<h1>All my bids</h1>
+
+<% @bids.each do |b| %>
+<%= b.auction.title %>: <%= number_to_currency(b.amount) %>: <%= b.created_at.strftime("%l:%M%P, %B %d, %Y ") %>
+<hr />
+<% end %>

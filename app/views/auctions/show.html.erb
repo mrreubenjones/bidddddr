@@ -1,0 +1,68 @@
+<h1><%= @auction.title %></h1>
+
+<div class="meta-data">
+  <span><%= link_to '< Back to all auctions', root_path %></span>
+  <span>Reserve Price: <%= @auction.reserve_price %></span>
+  <span>End date: <%= @auction.date_ending %></span>
+  <span>Status: <%= @auction.aasm_state %></span>
+  <span><%= link_to 'Edit', edit_auction_path(@auction) %></span>
+  <span><%= link_to 'Delete',
+    auction_path(@auction),
+    method: :delete
+  %></span>
+</div>
+
+<h2>Details</h2>
+
+<p><%= @auction.details %></p>
+
+<% if @auction.draft? %>
+    <%= link_to 'Publish',
+      publish_path(@auction),
+      method: :post,
+      class: 'btn btn-primary'
+    %>&nbsp;
+    &nbsp;<%= link_to 'Cancel',
+      cancel_path(@auction),
+      method: :post
+    %>
+<% elsif @auction.published? %>
+    <%= link_to 'Make Draft',
+      draft_path(@auction),
+      method: :post
+    %>&nbsp;
+    &nbsp;<%= link_to 'Cancel',
+      cancel_path(@auction),
+      method: :post
+    %>
+<% elsif @auction.cancelled? %>
+    <%= link_to 'Make Draft',
+      draft_path(@auction),
+      method: :post,
+      class: 'btn btn-primary'
+    %>
+<% end %>
+
+<hr />
+
+<h2>Current Bid:
+  <% if @auction.bids.present? %>
+    <%= number_to_currency(@auction.max_amount) %>
+  <% else %>
+    0
+  <% end %>
+</h2>
+
+<h2>New Bid</h2>
+<%= form_for [@auction, @bid] do |f| %>
+  <%= f.text_field :amount, placeholder: '$' %>
+  <%= f.submit 'Bid!', class: "btn btn-primary" %>
+<% end %>
+
+<h2>Bid History</h2>
+
+<% @bids.each do |b| %>
+  <%= number_to_currency(b.amount) %><br />
+  <%= b.user.full_name %>&mdash;<%= b.created_at.strftime("%l:%M%P, %B %d, %Y ") %>
+  <hr />
+<% end %>

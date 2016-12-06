@@ -11,6 +11,27 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap
+//= require bootstrap-datepicker
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require_tree .
+
+// Date Picker
+$(document).ready(function(){
+   $('.datepicker').datepicker({
+     format: {
+         toDisplay: function (date, format, language) {
+             var d = new Date(date);
+             d.setDate(d.getDate() - 7);
+             return d.toISOString();
+         },
+         toValue: function (date, format, language) {
+             var d = new Date(date);
+             d.setDate(d.getDate() + 7);
+             return new Date(d);
+         }
+     },
+     autoclose: true
+   });
+ });
